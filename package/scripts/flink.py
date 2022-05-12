@@ -117,6 +117,10 @@ class Master(Script):
     if params.flink_streaming:
       cmd = cmd + ' -st '
     Execute (cmd + format(" >> {flink_log_file}"), user=params.flink_user)
+    Directory([status_params.flink_pid_dir, params.flink_log_dir, params.flink_install_dir],
+              owner=params.flink_user,
+              group=params.flink_group
+              )
     Execute("yarn application -list 2>/dev/null | awk '/" + params.flink_appname + "/ {print $1}' | head -n1 > " + status_params.flink_pid_file, user=params.flink_user)
     #Execute('chown '+params.flink_user+':'+params.flink_group+' ' + status_params.flink_pid_file)
 
