@@ -1,6 +1,6 @@
 {
   "general_deps" : {
     "_comment" : "dependencies for flink",
-    "FLINK_MASTER-START" : ["RESOURCEMANAGER-START"]
+    "FLINK_MASTER-START" : ["RESOURCEMANAGER-START","NODEMANAGER-START"]
   }
 }
